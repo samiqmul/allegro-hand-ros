@@ -95,7 +95,7 @@ void AllegroNode::updateWriteReadCAN() {
 
   if (lEmergencyStop < 0) {
     // Ignore zero command error
-    ROS_ERROR("Unknown CAN message is ignored!");
+    // ROS_ERROR("Unknown CAN message is ignored!");
     // Stop program when Allegro Hand is switched off
     // ROS_ERROR("Allegro Hand Node is Shutting Down! (Emergency Stop)");
     // ros::shutdown();

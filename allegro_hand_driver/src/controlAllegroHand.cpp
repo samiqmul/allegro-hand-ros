@@ -294,7 +294,7 @@ int controlAllegroHand::readDevices() {
     lID = _parseCANMsg(lmsg.Msg, q);
 
     if (lID < 0) {
-      ROS_WARN("readDevices: lID %d", lID);
+      // ROS_WARN("readDevices: lID %d", lID);
       return -1;
     }
     else if ((lID >= ID_DEVICE_SUB_01) && (lID <= ID_DEVICE_SUB_04)) {
@@ -329,7 +329,7 @@ void controlAllegroHand::_readDevices() {
     ret = LINUX_CAN_Read_Timeout(CanHandle, &lmsg, 3000); // timeout in micro second
 
     if (ret) {
-      ROS_WARN("_readDevices: LINUX_CAN_Read failed");
+      // ROS_WARN("_readDevices: LINUX_CAN_Read failed");
       break;
     }
     else {
@@ -353,7 +353,7 @@ void controlAllegroHand::_readDevices() {
   }
 
   if (itr < 4) {
-    ROS_WARN("_readDevices: itr %d, errorcnt: %d", itr, errorcnt);
+    // ROS_WARN("_readDevices: itr %d, errorcnt: %d", itr, errorcnt);
     //printf(": %d  \n", itr );
     errorcnt++;
     if (errorcnt > 3) {
@@ -536,7 +536,7 @@ char controlAllegroHand::_parseCANMsg(TPCANMsg read_msg, double *values) {
       return 0;
       break;
     default:
-      ROS_WARN("unknown command %d, src %d, to %d, len %d", cmd, src, to, len);
+      // ROS_WARN("unknown command %d, src %d, to %d, len %d", cmd, src, to, len);
       /*
         for(int nd=0; nd<len; nd++)
         {
