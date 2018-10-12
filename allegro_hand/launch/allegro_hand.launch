@@ -98,6 +98,7 @@
     <rosparam file="$(arg PARAMS_DIR)/gains_velSat.yaml" command="load" />
     <rosparam file="$(arg PARAMS_DIR)/initial_position.yaml" command="load" />
 
+    <rosparam file="$(arg PARAMS_DIR)/joint_limits.yaml" command="load" />
     <!-- Set the CAN channel automatically (using detect_pcan.py) if the
          AUTO_CAN parameter is true, otherwise use the CAN_DEVICE
          argument. NOTE: To manually set the can device, you must *also* set
