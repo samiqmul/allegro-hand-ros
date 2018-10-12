@@ -67,10 +67,13 @@
   <!--If true, respawn the controller if it dies. -->
   <arg name="RESPAWN" default="false"/>
 
+  <!-- Take xacro file path as an argument, to support alternative robot configurations -->
+  <arg name="XACRO_PATH" default="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro" />
+
   <!-- Load the robot description directly from the xacro file. (NOTE: store it
        in two parameter names.) -->
   <param name="robot_description"
-         command="$(find xacro)/xacro '$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro' --check-order"/>
+         command="$(find xacro)/xacro '${XACRO_PATH}' --check-order"/>
 
   <!-- Allegro Hand controller and communication node. -->
   <node name="allegroHand_$(arg HAND)_$(arg NUM)"
