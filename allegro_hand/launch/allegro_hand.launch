@@ -70,6 +70,9 @@
   <!-- Take xacro file path as an argument, to support alternative robot configurations -->
   <arg name="XACRO_PATH" default="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro" />
 
+  <!-- option to (not) publish tf, useful when mounting the hand -->
+  <arg name="TF" default="true" />
+
   <!-- Load the robot description directly from the xacro file. (NOTE: store it
        in two parameter names.) -->
   <param name="robot_description"
@@ -126,7 +129,8 @@
   <!-- Joint States (angles) to Joint Transforms -->
   <node name="jointState2tf_$(arg NUM)"
 		pkg="robot_state_publisher"
-		type="robot_state_publisher">
+		type="robot_state_publisher"
+    if="$(arg TF)">
 	<remap from="joint_states" to="allegroHand_$(arg NUM)/joint_states"/>
   </node>
 
