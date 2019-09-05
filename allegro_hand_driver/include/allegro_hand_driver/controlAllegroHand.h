@@ -22,12 +22,12 @@
 #define PWM_LIMIT_ROLL 250.0*1.5
 #define PWM_LIMIT_NEAR 450.0*1.5
 #define PWM_LIMIT_MIDDLE 300.0*1.5
-#define PWM_LIMIT_FAR 190.0*1.5
+#define PWM_LIMIT_FAR 400*1.5 // 190.0*1.5
 
-#define PWM_LIMIT_THUMB_ROLL 350.0*1.5
-#define PWM_LIMIT_THUMB_NEAR 270.0*1.5
-#define PWM_LIMIT_THUMB_MIDDLE 180.0*1.5
-#define PWM_LIMIT_THUMB_FAR 180.0*1.5
+#define PWM_LIMIT_THUMB_ROLL 400*1.5// 350.0*1.5
+#define PWM_LIMIT_THUMB_NEAR 400*1.5 // 350.0*1.5 // joint 2
+#define PWM_LIMIT_THUMB_MIDDLE 400*1.5 //180.0*1.5 // joint 1
+#define PWM_LIMIT_THUMB_FAR 400.0*1.5 //180.0*1.5 // joint 0
 
 class controlAllegroHand
 {
