@@ -22,6 +22,9 @@ At this point no effort has been made to be backwards compatible.
 
 Launch file instructions:
 ------------------------
+//OKAY
+//CHANGES TO TEST
+
 
 There is a single file to start any hand,
 [allegro_hand.launch](allegro_hand/launch/allegro_hand.launch)
