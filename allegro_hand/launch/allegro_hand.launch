@@ -67,10 +67,16 @@
   <!--If true, respawn the controller if it dies. -->
   <arg name="RESPAWN" default="false"/>
 
+  <!-- Take xacro file path as an argument, to support alternative robot configurations -->
+  <arg name="XACRO_PATH" default="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro" />
+
+  <!-- option to (not) publish tf, useful when mounting the hand -->
+  <arg name="TF" default="true" />
+
   <!-- Load the robot description directly from the xacro file. (NOTE: store it
        in two parameter names.) -->
   <param name="robot_description"
-         command="$(find xacro)/xacro '$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro' --check-order"/>
+         command="$(find xacro)/xacro '$(arg XACRO_PATH)' --check-order"/>
 
   <!-- Allegro Hand controller and communication node. -->
   <node name="allegroHand_$(arg HAND)_$(arg NUM)"
@@ -98,6 +104,7 @@
     <rosparam file="$(arg PARAMS_DIR)/gains_velSat.yaml" command="load" />
     <rosparam file="$(arg PARAMS_DIR)/initial_position.yaml" command="load" />
 
+    <rosparam file="$(arg PARAMS_DIR)/joint_limits.yaml" command="load" />
     <!-- Set the CAN channel automatically (using detect_pcan.py) if the
          AUTO_CAN parameter is true, otherwise use the CAN_DEVICE
          argument. NOTE: To manually set the can device, you must *also* set
@@ -122,7 +129,8 @@
   <!-- Joint States (angles) to Joint Transforms -->
   <node name="jointState2tf_$(arg NUM)"
 		pkg="robot_state_publisher"
-		type="robot_state_publisher">
+		type="robot_state_publisher"
+    if="$(arg TF)">
 	<remap from="joint_states" to="allegroHand_$(arg NUM)/joint_states"/>
   </node>
 

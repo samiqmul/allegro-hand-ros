@@ -59,7 +59,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     for (int i = 0; i < DOF_JOINTS; i++)
       desired_position[i] = current_position[i];
   } else {
-    ROS_WARN("Unknown commanded grasp: %s.", lib_cmd.c_str());
+    // ROS_WARN("Unknown commanded grasp: %s.", lib_cmd.c_str());
   }
 }
 

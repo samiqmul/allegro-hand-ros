@@ -1,4 +1,4 @@
-#SAH030C033R
+#Zero configuration specific to the hand in Advanced Robotics Lab @ QMUL.
 #The YAML file used by the Allegro Hand Node is named "zero.yaml"
 
 hand_info:
@@ -13,22 +13,22 @@ hand_info:
 
 zero:
  encoder_offset:
-  j00: -1591
-  j01: -277
-  j02: 545
-  j03: 168
-  j10: -904
-  j11: 53
-  j12: -233
-  j13: -1476
-  j20: 2
-  j21: -987
-  j22: -230
-  j23: -106
-  j30: -1203
-  j31: 361
-  j32: 327
-  j33: 565
+  j00: -971
+  j01: 913
+  j02: 0
+  j03: -600
+  j10: 9486
+  j11: 1182
+  j12: -1551
+  j13: -1507
+  j20: -6699
+  j21: -449
+  j22: -643
+  j23: -1089
+  j30: -1050
+  j31: 6000
+  j32: -368
+  j33: 468
 
  encoder_direction:
   j00: +1
